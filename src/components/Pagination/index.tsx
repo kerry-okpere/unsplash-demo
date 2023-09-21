@@ -1,4 +1,4 @@
-import { PER_PAGE } from "../../constants";
+import { getPagination } from "../../helpers";
 
 const classes = {
   button:
@@ -7,23 +7,6 @@ const classes = {
   wrapper: "flex flex-col items-center",
   description: "text-sm text-gray-700",
   buttonGroup: "inline-flex mt-2 xs:mt-0",
-};
-
-const getPagination = (data: { page: number; total: number }) => {
-  const range = PER_PAGE * data.page;
-
-  const peek = range - PER_PAGE + 1;
-  const end = data.total > range ? range : data.total;
-
-  const isLastPage = end === data.total;
-  const isFirstPage = data.page === 1;
-
-  return {
-    peek,
-    end,
-    isFirstPage,
-    isLastPage,
-  };
 };
 
 const Pagination = ({
