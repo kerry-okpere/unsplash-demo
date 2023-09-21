@@ -1,8 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import '@testing-library/jest-dom'
 
-test('renders learn react link', () => {
+window.scrollTo = jest.fn()
+
+test('renders Search for Images link', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const headingElement = screen.getByText(/Search for Images/i);
+  expect(headingElement).toBeInTheDocument();
 });
